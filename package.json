@@ -1,0 +1,78 @@
+{
+  "name": "logospraxis",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline-first flashcards, academic PDF reading and knowledge review.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gugu1031/gugu-LogosPraxis-flashcards.git"
+  },
+  "keywords": [
+    "flashcards",
+    "fsrs",
+    "pdf-reader",
+    "offline-first",
+    "pwa",
+    "vue",
+    "capacitor"
+  ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc -b && vite build",
+    "sites:build": "npm run build && node scripts/prepare-sites.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "vue-tsc -b",
+    "native:doctor": "node scripts/mobile.mjs doctor",
+    "native:sync": "node scripts/mobile.mjs sync",
+    "native:assets": "npx --yes --cache .toolchains/npm-cache --package @capacitor/assets@3.0.5 capacitor-assets generate --ios --android --iconBackgroundColor #171d19 --iconBackgroundColorDark #171d19 --splashBackgroundColor #f1f3ef --splashBackgroundColorDark #171d19",
+    "android:sync": "node scripts/mobile.mjs sync android",
+    "android:debug": "node scripts/mobile.mjs android-debug",
+    "android:release:apk": "node scripts/mobile.mjs android-release-apk",
+    "android:release:aab": "node scripts/mobile.mjs android-release-aab",
+    "android:create-key": "powershell -ExecutionPolicy Bypass -File scripts/create-android-upload-key.ps1",
+    "android:open": "npx cap open android",
+    "ios:sync": "node scripts/mobile.mjs sync ios",
+    "ios:open": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.2",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.4.2",
+    "@capacitor/filesystem": "^8.1.2",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/share": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@phosphor-icons/vue": "^2.2.1",
+    "@zip.js/zip.js": "^2.7.62",
+    "dexie": "^4.0.11",
+    "echarts": "^6.0.0",
+    "pdfjs-dist": "4.10.38",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.4.2",
+    "@capacitor/ios": "^8.4.2",
+    "@types/node": "^24.1.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.6",
+    "vite-plugin-pwa": "1.1.0",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.4"
+  },
+  "overrides": {
+    "ejs": "6.0.1"
+  }
+}
